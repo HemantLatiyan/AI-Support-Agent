@@ -1,6 +1,7 @@
-const BASE = 'http://localhost:8000';
-
+import { PUBLIC_API_BASE } from '$env/static/public';
 import type { SendResult, StoredMessage } from './types';
+
+const BASE = PUBLIC_API_BASE || 'http://localhost:8000';
 
 export async function sendMessage(
   message: string,
