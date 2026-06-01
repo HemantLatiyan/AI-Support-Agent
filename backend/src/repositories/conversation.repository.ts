@@ -1,6 +1,6 @@
 import { db } from '../db';
 import { conversations } from '../db/schema';
-import { eq } from "drizzle-orm";
+// import { eq } from "drizzle-orm";
 import { v4 as uuidv4 } from 'uuid';
 
 export async function createConversation() {
@@ -14,11 +14,11 @@ export async function createConversation() {
     return conversation;
 };
 
-export async function getConversationById(id: string) {
-    const result = await db
-        .select()
-        .from(conversations)
-        .where(eq(conversations.id, id));
+// export async function getConversationById(id: string) {
+//     const result = await db
+//         .select()
+//         .from(conversations)
+//         .where(eq(conversations.id, id));
 
-    return result[0] || null;
-};
+//     return result[0] || null;
+// };

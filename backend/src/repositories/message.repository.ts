@@ -35,7 +35,7 @@ export async function createMessage(
             await redis.set(key, JSON.stringify(existing), 'EX', CACHE_TTL);
         }
     } catch {
-        // Cache failure is non-fatal — DB is the source of truth
+        // Cache failure is non-fatal
     }
 
     return message;
@@ -51,7 +51,7 @@ export async function getMessagesByConversationId(conversationId: string) {
             return JSON.parse(cached);
         }
     } catch {
-        // Cache failure is non-fatal — just log and continue to DB
+        // Cache failure is non-fatal
     }
 
     console.log('Cache miss for conversation messages, querying database');
