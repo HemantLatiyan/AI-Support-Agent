@@ -13,6 +13,10 @@ A simple live chat widget where an AI agent answers customer support questions. 
 
 ---
 
+## Deployment
+Frontend - Vercel
+Backend - Railway
+
 ## Running locally
 
 ### Prerequisites
