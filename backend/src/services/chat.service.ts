@@ -1,4 +1,4 @@
-import { createConversation } from '../repositories/conversation.repository';
+import { createConversation, getConversationById } from '../repositories/conversation.repository';
 import { createMessage, getMessagesByConversationId } from '../repositories/message.repository';
 import { generateReply, generateReplyStream } from './llm.service';
 import { Response } from 'express';
@@ -9,10 +9,10 @@ export async function handleChatMessage(
 ) {
     let conversation;
 
-    if (!conversationId) {
+    if (!conversationId || !(await getConversationById(conversationId))) {
         conversation = await createConversation();
         conversationId = conversation.id;
-    } 
+    }
 
     await createMessage(conversationId, message, 'user');
 
